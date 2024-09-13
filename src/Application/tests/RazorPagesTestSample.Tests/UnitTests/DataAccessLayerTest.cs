@@ -44,7 +44,7 @@ namespace RazorPagesTestSample.Tests.UnitTests
 
                 // Assert
                 var actualMessage = await db.FindAsync<Message>(recId);
-                Assert.Equal(new Message() { Id = recId, Text = "Test" }, actualMessage);
+                Assert.Equal(expectedMessage, actualMessage);
             }
         }
 
