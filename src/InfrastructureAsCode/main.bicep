@@ -100,6 +100,19 @@ resource appServiceApp 'Microsoft.Web/sites@2020-12-01' = {
     }
 }
 
+// Add a Redis Cache
+resource redisCache 'microsoft.cache/redis@2023-08-01' = {
+  name: '${uniqueString(resourceGroup().id)}-mpnp-rc'
+  location: location
+  properties: {
+    sku: {
+      name: 'Basic'
+      family: 'C'
+      capacity: 1
+    }
+  }
+}
+
 output application_name string = appServiceApp.name
 output application_url string = appServiceApp.properties.hostNames[0]
 output container_registry_name string = containerRegistry.name
