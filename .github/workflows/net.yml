@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  registryName: xhzuznkmutbyompnpreg.azurecr.io
+  registryName: xhzuznkmutbyo.azurecr.io
   repositoryName: techexcel/dotnetcoreapp
   dockerFolderPath: ./src/Application/src/RazorPagesTestSample
   tag: ${{github.run_number}}
@@ -76,7 +76,7 @@ jobs:
     needs: dockerBuildPush
     environment:
       name: dev
-      url: https://xhzuznkmutbyompnpreg-dev.azurewebsites.net/
+      url: https://xhzuznkmutbyo-dev.azurewebsites.net/
     
     steps:
       - name: 'Login via Azure CLI'
@@ -89,8 +89,8 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'xhzuznkmutbyompnpreg-dev'
-          images: xhzuznkmutbyompnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
+          app-name: 'xhzuznkmutbyo-dev'
+          images: xhzuznkmutbyo.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
@@ -102,7 +102,7 @@ jobs:
     needs: deploy-to-dev
     environment:
       name: test
-      url: https://xhzuznkmutbyompnpreg-test.azurewebsites.net/
+      url: https://xhzuznkmutbyo-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -117,8 +117,8 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'xhzuznkmutbyompnpreg-test'
-        images: xhzuznkmutbyompnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
+        app-name: 'xhzuznkmutbyo-test'
+        images: xhzuznkmutbyo.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
   
@@ -130,7 +130,7 @@ jobs:
     needs: deploy-to-test
     environment:
       name: prod
-      url: https://xhzuznkmutbyompnpreg-prod.azurewebsites.net/
+      url: https://xhzuznkmutbyo-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -145,5 +145,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'xhzuznkmutbyompnpreg-prod'
-        images: xhzuznkmutbyompnpreg.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
+        app-name: 'xhzuznkmutbyo-prod'
+        images: xhzuznkmutbyo.azurecr.io/techexcel/dotnetcoreapp:${{github.run_number}}
