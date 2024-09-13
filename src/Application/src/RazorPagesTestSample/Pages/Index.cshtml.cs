@@ -95,7 +95,12 @@ namespace RazorPagesTestSample.Pages
         public static void WriteToDirectory(ZipArchiveEntry entry, string destDirectory)
         {
             string destFileName = Path.Combine(destDirectory, entry.FullName);
-            entry.ExtractToFile(destFileName);
+            
+            // Ensure the destination path is within the intended directory
+            if (!destFileName.StartsWith(destDirectory, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new InvalidOperationException("Entry is outside the target directory.");
+            }
         }
     }
 }

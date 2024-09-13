@@ -39,3 +39,39 @@ We prefer all communications to be in English.
 Microsoft follows the principle of [Coordinated Vulnerability Disclosure](https://aka.ms/security.md/cvd).
 
 <!-- END MICROSOFT SECURITY.MD BLOCK -->
+
+A security file in a GitHub repository, often named SECURITY.md, typically includes several key sections to help users and contributors understand how to report and handle security issues. Here are the essential components:
+
+Reporting a Vulnerability: Instructions on how users should report security vulnerabilities. This usually includes contact information, such as an email address or a link to a vulnerability reporting form.
+
+Supported Versions: A list of the versions of your project that are currently supported with security updates.
+
+Security Update Process: Information on how security updates are communicated and handled.
+
+Security Policy: General information about your project's approach to security, including any security-related best practices or guidelines.
+
+Here's a basic example of SECURITY.md:
+
+# Security Policy
+
+## Reporting a Vulnerability
+
+If you discover a security vulnerability, please report it by sending an email to [security@example.com](mailto:security@example.com). We will respond as quickly as possible to address the issue.
+
+## Supported Versions
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 1.0.x   | :white_check_mark: |
+| 0.9.x   | :x:                |
+
+## Security Update Process
+
+We will notify users of security updates through the following channels:
+- [GitHub Releases](https://github.com/juligu/TechExcel-Accelerate-developer-productivity-with-GitHub-Copilot-and-Dev-Box/releases)
+- [Project Mailing List](mailto:project@example.com)
+
+## Security Policy
+
+We are committed to ensuring the security of our project by following industry best practices and promptly addressing any reported vulnerabilities.
+Feel free to modify the content based on your specific project's needs and policies.
